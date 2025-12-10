@@ -3,16 +3,18 @@ import inflection
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from pathlib import Path
 
 class Rossmann(object):
     def __init__(self):
-        self.home_path = ''
-        # scalers carregados do disco
-        self.competition_distance_scaler = pickle.load(open(self.home_path + 'parameter/competition_distance_scaler.pkl', 'rb'))
-        self.competition_time_month_scaler = pickle.load(open(self.home_path + 'parameter/competition_time_month_scaler.pkl', 'rb'))
-        self.promo_time_week_scaler = pickle.load(open(self.home_path + 'parameter/promo_time_week_scaler.pkl', 'rb'))
-        self.year_scaler = pickle.load(open(self.home_path + 'parameter/year_scaler.pkl', 'rb'))
-        self.store_type_scaler = pickle.load(open(self.home_path + 'parameter/store_type_scaler.pkl', 'rb'))
+        # Sobe 1 pasta
+        self.home_path = Path(__file__).parent.parent  
+        
+        self.competition_distance_scaler   = pickle.load(open(self.home_path / 'parameter' / 'competition_distance_scaler.pkl', 'rb'))
+        self.competition_time_month_scaler = pickle.load(open(self.home_path / 'parameter' / 'competition_time_month_scaler.pkl', 'rb'))
+        self.promo_time_week_scaler        = pickle.load(open(self.home_path / 'parameter' / 'promo_time_week_scaler.pkl', 'rb'))
+        self.year_scaler                   = pickle.load(open(self.home_path / 'parameter' / 'year_scaler.pkl', 'rb'))
+        self.store_type_scaler             = pickle.load(open(self.home_path / 'parameter' / 'store_type_scaler.pkl', 'rb'))
 
     def data_cleaning(self, df1):
         cols_old = ['Store', 'DayOfWeek', 'Date', 'Open', 'Promo',

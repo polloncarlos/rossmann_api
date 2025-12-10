@@ -1,11 +1,16 @@
 import os
-import pickle
+import xgboost as xgb
 import pandas as pd
 from rossmann.Rossmann import Rossmann
 from flask import Flask, request, Response, jsonify
+from pathlib import Path
+
+# Caminho relativo à raiz do projeto
+MODEL_PATH = Path(__file__).parent / 'model' / 'model_rossmann_v02.ubj'
 
 # load model
-model = pickle.load(open('model/model_rossmann.pkl', 'rb'))
+model = xgb.Booster()
+model.load_model(str(MODEL_PATH))
 
 # instantiate pipeline
 pipeline = Rossmann()
