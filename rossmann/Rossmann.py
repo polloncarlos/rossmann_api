@@ -124,12 +124,11 @@ class Rossmann(object):
         return df5[cols_selected]
 
     def get_prediction(self, model, original_data, test_data):
-        
         df = original_data.copy()
         
-        # Model prediction
-        pred = model.predict(test_data)
+        # Booster 
+        pred = model.predict(test_data.values)  
         
-        # Convert from log space and ensure Python float
         df['prediction'] = np.expm1(pred).astype(float)
+        
         return df.to_json(orient='records', date_format='iso')
