@@ -2,7 +2,7 @@
 
 <p>
 API em <b>Flask</b> para previsão de vendas das lojas Rossmann utilizando um modelo
-<b>XGBoost</b>, desenvolvida como camada de produção de um projeto completo de
+<b>XGBoost</b>, desenvolvida como camada de deploy de um projeto completo de
 <b>Ciência de Dados</b>.
 </p>
 
@@ -19,7 +19,7 @@ informações contextuais das lojas.
 <p>
 A API representa a etapa final de um pipeline de Data Science, iniciado com
 análise exploratória, modelagem e validação, e finalizado com a entrega de um
-produto consumível em produção.
+produto consumível via API.
 </p>
 
 <ul>
@@ -75,8 +75,8 @@ Cliente (Bot / App / Serviço)
 </ul>
 
 <p>
-O modelo foi validado utilizando técnicas de cross-validation e otimização de
-hiperparâmetros, sendo carregado em produção exclusivamente para inferência.
+O modelo foi validado com validação cruzada temporal (time series split) e otimização de
+hiperparâmetros, sendo carregado no deploy exclusivamente para inferência.
 </p>
 
 <hr/>
@@ -105,6 +105,17 @@ A API é consumida pelo projeto
 <a href="https://github.com/polloncarlos/rossmann_telegram_bot">
 rossmann_telegram_bot
 </a>, permitindo que usuários obtenham previsões diretamente via Telegram.
+</p>
+
+<hr/>
+
+<h2>🔗 Projeto Relacionado</h2>
+
+<p>
+📈 Projeto completo (EDA, modelagem e avaliação), com RMSE 912 x 1.120 da primeira versão (−19%)<br/>
+<a href="https://github.com/polloncarlos/rossmann_sales_predict">
+rossmann_sales_predict
+</a>
 </p>
 
 <hr/>
